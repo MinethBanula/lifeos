@@ -1,0 +1,29 @@
+{
+  "version": 1,
+  "coach": {
+    "today": "Keep tonight light. One meaningful creative block is enough.",
+    "week": "Protect the two areas that matter most this week and leave some unclaimed time."
+  },
+  "focus_areas": [
+    { "name": "Career", "mode": "primary", "momentum": "moving" },
+    { "name": "Health", "mode": "active", "momentum": "steady" },
+    { "name": "Learning", "mode": "active", "momentum": "moving" }
+  ],
+  "projects": [
+    { "area": "Career", "name": "Portfolio", "kind": "project", "status": "active" },
+    { "area": "Learning", "name": "TouchDesigner", "kind": "project", "status": "active" }
+  ],
+  "tasks": [
+    { "external_key": "portfolio-case-01", "title": "Document one recent project", "area": "Career", "project": "Portfolio", "horizon": "known", "state": "planned", "estimated_minutes": 45 },
+    { "external_key": "td-experiment-01", "title": "Build one small TouchDesigner experiment", "area": "Learning", "project": "TouchDesigner", "horizon": "floating", "state": "planned", "estimated_minutes": 35 }
+  ],
+  "habits": [
+    { "title": "Gym", "area": "Health", "target_per_week": 3, "active": true }
+  ],
+  "evidence": [
+    { "area": "Learning", "project": "TouchDesigner", "kind": "progress", "summary": "Understood a new particle workflow from an unplanned experiment." }
+  ],
+  "suggestions": [
+    "Portfolio has been quiet. A single 45-minute documentation block would be enough to restart momentum."
+  ]
+}
