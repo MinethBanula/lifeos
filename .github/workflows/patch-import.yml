@@ -1,0 +1,32 @@
+name: Patch LifeOS import status
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'tools/patch_import_status.py'
+      - '.github/workflows/patch-import.yml'
+permissions:
+  contents: write
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Patch importer and status viewer
+        run: python tools/patch_import_status.py
+      - name: Validate JavaScript
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          s=Path('index.html').read_text()
+          js=s.split('<script type="module">',1)[1].split('</script>',1)[0]
+          Path('/tmp/lifeos.mjs').write_text(js)
+          PY
+          node --check /tmp/lifeos.mjs
+      - name: Commit patched app
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          git diff --cached --quiet || git commit -m "Fix LifeOS import flow and add status viewer"
+          git push
